@@ -1,0 +1,13 @@
+
+module DFF_tb;
+	output reg clk;
+	output reg q_non_rst;
+	output reg q_asynq;
+	output reg 
+	
+	initial clk = 1'b0;
+	
+	always
+		#5 clk = ~clk;
+
+	DFF(
