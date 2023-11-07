@@ -9,7 +9,7 @@ module counter(clk, rst, count);
 			if (rst)
 			       count = 8'h0;
 
-			if (counter == 8'h1)			
+			else if (counter == 8'hff)			
 				counter = 8'h0;
 
 			else
