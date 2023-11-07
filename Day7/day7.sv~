@@ -1,9 +1,0 @@
-
-module 4_bit_lfsr(
-	input wire clk, 
-	input wire rst, 
-	output wire [3:0] lfsr )
-
-	lfsr = 4'h4;
-
-
