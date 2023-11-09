@@ -1,18 +1,21 @@
 module decoder_tb;
 	wire [3:0] in;
-	reg [15:0] one_hot;
+	wire [15:0] one_hot;
 
 	decoder inst(.*);
 
-	for (int i = 0 ; i<= 15; i++) begin 
-		in = $random_range(4'hf);
+	initial begin
+	for (int i = 0 ; i<= 15; i++)
+		in = $urandom_range(4'hf);
+		#5 
 	end 
 
 	initial  begin 
 		$dumpfile("day8.vcd");
-		$dumvars;
+		$dumpvars;
 	end
 endmodule
 
 		
-       	       
+       	      
+
