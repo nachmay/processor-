@@ -1,12 +1,18 @@
 module bin_to_gray_tb;
-	wire bin_in [3:0];
-	wire gray_out [3:0];
+	reg  [3:0] bin_in;
+	wire [3:0] gray_out;
 
 	bin_to_gray inst(.*);
 
-	initial 
-		for (int i = 0; i<=4; i++) 
-			#5 bin in = $urandom_range(0, 4'hf);
+	initial begin
+		repeat(4)
+			#5 bin in = $urandom_range(4'hf);
+	end
+
+	initial begin
+		$dumpfile("day9.vcd");
+		$dumpvars;
+	end
 endmodule
 
 

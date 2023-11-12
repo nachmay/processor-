@@ -1,14 +1,12 @@
-module bin_to_gray(bin_in, gray_out);
-	$parameter LEN = 4;  
+module bin_to_gray(gray_out, bin_in);	
 	
-	input wire bin_in [LEN-1:0];
-	output wire gray_out[LEN-1:0];
+	input wire [3:0]bin_in;
+	output wire [3:0] gray_out;
 
-	msb = bin_in[0];
+	assign gray_out[3] = bin_in[3]
+	genvar i;
 
-	for ( int i =0; i<LEN-1; i++)
-		assign out_gray[i+1] = out_gray[i]^out_gray[i+1];
-
-	assign gray_out = {msb, gray_out[1:3];
-	
+	for ( int i =2; i>=0; i = i-1)
+		assign gray_out[i] = gray_out[i]^out_gray[i+1];
+		
 endmodule
