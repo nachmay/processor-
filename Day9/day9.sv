@@ -7,6 +7,6 @@ module bin_to_gray(gray_out, bin_in);
 	genvar i;
 
 	for ( int i =2; i>=0; i = i-1)
-		assign gray_out[i] = gray_out[i]^out_gray[i+1];
+		assign gray_out[i] =bin_in [i]^bin_in[i+1];
 		
 endmodule
