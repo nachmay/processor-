@@ -1,29 +1,35 @@
 module load_counter_tb;
-	wire clk;
-	wire rst;
-	wire load_val;
-	wire [3:0] load4bit;
+	reg clk;
+	reg rst;
+	reg load_flag;
+	reg [3:0] load_val;
 
-	wire [3:0];
+	reg [3:0] count;
 
 	load_counter inst(.*);
 
 	initial begin
 		clk = 0'b0;
 		rst = 1'b1;
+		load_flag = 1b0;
+		#10 rst = 1'b0;
+		#20 load_flag = 1'b1; load_val = 4'h4;
+		#10 load_flag = 1'b0;
 	end
 	
 	always
 		#5 clk = ~clk;
 
-	assign load4bit = 4'h3;
-	#20 load = 1'b1;
+	
+	
 
 	initial begin
 		$dumpfile("day10.vcd");
 		$dumpvars;
+		#1000 $finish;
 	end
 endmodule
+
 
 
 
